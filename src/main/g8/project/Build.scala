@@ -33,7 +33,14 @@ object MyBuild extends Build {
       libraryDependencies ++= (
         if (scalaVersion.value.startsWith("2.10")) List("org.scalamacros" % "quasiquotes" % paradiseVersion cross CrossVersion.full)
         else Nil
-      )
+      ),
+      initialCommands in console := """
+      |import reflect.runtime.universe
+      |import universe._
+      |import reflect.runtime.currentMirror
+      |import tools.reflect.ToolBox
+      |val toolbox = currentMirror.mkToolBox()
+      """.stripMargin
     )
   )
 
