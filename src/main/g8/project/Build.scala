@@ -35,11 +35,11 @@ object MyBuild extends Build {
         else Nil
       ),
       initialCommands in console := """
-      |import reflect.runtime.universe
-      |import universe._
-      |import reflect.runtime.currentMirror
-      |import tools.reflect.ToolBox
-      |val toolbox = currentMirror.mkToolBox()
+        |import reflect.runtime.universe
+        |import universe._
+        |import reflect.runtime.currentMirror
+        |import tools.reflect.ToolBox
+        |val toolbox = currentMirror.mkToolBox()
       """.stripMargin
     )
   )
